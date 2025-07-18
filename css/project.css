@@ -1,0 +1,242 @@
+/* Reset default styles */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Parallax */
+#parallax-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#parallax-container div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#parallax-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    min-height: 100vh;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Tambahan untuk ukuran layar kecil */
+@media (max-width: 768px) {
+    #parallax-container img {
+        width: 120vw; /* Beri ruang ekstra untuk menjaga parallax */
+    }
+}
+
+/* Main Color */
+
+:root {
+    --lightpurple: #bde1ff;
+    --poppins: 'Poppins', sans-serif;
+    --black: #000000;
+    --abril: 'Abril Fatface', cursive;
+    --lato: 'Lato', sans-serif;
+    --purple: #000000;
+    --darkgray: #6E6C78;
+    --white: #FFFFFF;
+    --lightgray: #898796;
+}
+
+::selection {
+    color: var(--lightpurple);
+    background: CornflowerBlue;
+    background-color: var(--black);
+}
+
+.nav-scrolled {
+    background: white !important;
+}
+
+
+/*Navbar*/
+.navbar {
+    height: 80px;
+    margin: 40px;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 0.5rem;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-item {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus, .btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffffff;
+}
+
+.contact-button {
+    background-color: black;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.contact-button:hover {
+    background-color: grey;
+}
+
+@media (min-width: 991px) {
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: black;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-link:hover::before, .nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+}
+
+}
+
+/* Section Title */
+.section-title {
+  color: white;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+/* Grid Container */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 kolom per baris */
+  gap: 24px;
+  padding: 0 60px; /* memberi jarak kiri-kanan */
+}
+
+/* Card */
+.project-card {
+  position: relative;
+  display: block;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  background: #222;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Responsive image that covers container & maintain aspect */
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* otomatis sesuaikan gambar landscape & portrait */
+  aspect-ratio: 3 / 3.5; /* default aspect ratio untuk project card */
+  transition: transform 0.4s ease;
+}
+
+/* Hover zoom effect on image */
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Card hover scale & shadow */
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 191, 255, 0.7);
+}
+
+/* Overlay info */
+.project-card .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  color: white;
+  padding: 20px 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: left;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+.project-card .overlay h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.project-card .overlay p {
+  font-size: 0.9rem;
+  color: #b0c4de;
+  margin: 0;
+}
+
+/* Responsive: Tablet - 3 kolom */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 40px;
+  }
+}
+
+/* Responsive: HP besar - 2 kolom */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 24px;
+  }
+}
+
+/* Responsive: HP kecil - 1 kolom */
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 16px;
+  }
+}

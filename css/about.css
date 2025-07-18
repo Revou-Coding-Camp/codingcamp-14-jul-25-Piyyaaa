@@ -1,0 +1,242 @@
+:root {
+    --lightpurple: #bde1ff;
+    --poppins: 'Poppins', sans-serif;
+    --black: #000000;
+    --abril: 'Abril Fatface', cursive;
+    --lato: 'Lato', sans-serif;
+    --purple: #000000;
+    --darkgray: #6E6C78;
+    --white: #FFFFFF;
+    --lightgray: #898796;
+}
+
+::selection {
+    color: var(--lightpurple);
+    background: CornflowerBlue;
+    background-color: var(--black);
+}
+
+.nav-scrolled {
+    background: white !important;
+}
+
+/* Parallax */
+#parallax-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#parallax-container div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#parallax-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    min-height: 100vh;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Tambahan untuk ukuran layar kecil */
+@media (max-width: 768px) {
+    #parallax-container img {
+        width: 120vw; /* Beri ruang ekstra untuk menjaga parallax */
+    }
+}
+
+/*Navbar*/
+.navbar {
+    height: 80px;
+    margin: 40px;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 0.5rem;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-item {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus, .btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffffff;
+}
+
+.contact-button {
+    background-color: black;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.contact-button:hover {
+    background-color: grey;
+}
+
+@media (min-width: 991px) {
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: black;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-link:hover::before, .nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+}
+
+}
+
+/*About*/
+#about {
+    padding-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Geser konten ke tengah */
+    padding: 50px;
+    gap: 50px; /* Jarak antara teks dan gambar */
+    margin-top: 80px;
+    margin-left: 60px;
+}
+
+.text-about {
+    padding-top: 5rem;
+}
+
+.text-about h1 {
+    font-family: var(--abril);
+    font-size: 50px;
+    text-align: left;
+    padding-bottom: 50px;
+}
+
+.text-about h1:after {
+    content: '';
+    display: block;
+    border-bottom: 7px solid var(--purple);
+    width: 24%;
+    padding-bottom: 2px;
+    margin-bottom: -9px;
+}
+
+.text-about span {
+    color: var(--purple);
+}
+
+.text-about p {
+    font-family: var(--poppins);
+    font-size: 23px;
+    text-transform: none;
+}
+
+.about-img {
+    padding-top: 4rem;
+}
+
+.cv {
+    padding-top: 50px;
+}
+
+.cv a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 10px 40px;
+    background: 808080;
+    border-radius: 10px;
+    border: 2px solid #caecff;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.cv a:hover:nth-child(1) {
+    color: #808080;
+    background: transparent;
+}
+
+.cv a:nth-child(2) {
+    color: #808080;
+    background: transparent;
+    margin-left: 30px;
+    padding: 10px 30px;
+}
+
+.cv a:hover:nth-child(2) {
+    color: white;
+    background: #808080;
+}
+
+@media (max-width: 768px) {
+    #about {
+        flex-direction: column;
+        padding: 30px 20px;
+        margin-left: 0; /* Hilangkan margin kiri di mobile */
+    }
+
+    .text-about {
+        text-align: center !important; /* Pastikan teks berada di tengah */
+        padding-top: 2rem;
+    }
+
+    .text-about h1 {
+        text-align: center !important;
+    }
+
+    .text-about h1:after {
+        margin: 0 auto; /* Garis bawah h1 juga ditengah */
+    }
+
+    .text-about p {
+        font-size: 18px; /* Ukuran font lebih kecil di mobile */
+    }
+
+    .cv a {
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .cv a:nth-child(2) {
+        margin-left: 0;
+    }
+}
